@@ -1,6 +1,6 @@
 var express = require('express'),
 app = express(),
-port = process.env.PORT || 5001,
+port = process.env.PORT || 4418,
 bodyParser = require('body-parser'),
 controller = require('./controller');
 var http = require('http');
@@ -18,8 +18,7 @@ const responseEnhancer = require('express-response-formatter')
 // Add formatter functions to "res" object via "responseEnhancer()"
 app.use(responseEnhancer()) 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json({verify:function(req,res,buf){req.rawBody=buf}}));
-
+//app.use(bodyParser.json({verify:function(req,res,buf){req.rawBody=buf}}));
 // Body Parser Middleware
 app.use(bodyParser.json()); 
 
@@ -51,7 +50,7 @@ app.use(express.json({
   }));
 
 //app.listen(port);
-http.createServer(app).listen(5000)
+http.createServer(app).listen(4408)
 https.createServer(options, app).listen(port);
 console.log('For Secure Access https on port: ' + port);
 
